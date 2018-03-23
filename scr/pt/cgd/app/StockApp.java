@@ -11,6 +11,7 @@ class StockApp {
         double dGain = ind0.calculateGains();
         
 //        IndexDownload indD0 = new IndexDownload("AAPL", IndexDownload.iYAHOO);
+// teste
         
     }
 
