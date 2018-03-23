@@ -2,21 +2,29 @@ package pt.cgd.indices;
 
 public class Index {
 
+    // Stock identification
     private String sIndex;
+    // Stock Prices
     private double dPriceBought;
     private double dPriceLast;
+    // Valuation indicators
     private double dPERation;
-    private double dCurrentRatio;
-    private double dDividendY;
     private double dDCF;
-    private double dROE;
-    private double dROI;
-    private double dEBTIDA;
+    // Finantial indicators
+    Finantial oFinantial;
 
     public Index(String sIndex, double dPriceBought, double dPriceLast) {
         this.sIndex = sIndex;
         this.dPriceBought = dPriceBought;
         this.dPriceLast = dPriceLast;
+    }
+
+    public void setoFinantial(double dCurrentRatio, double dDividendY, double dEBTIDA) {
+        oFinantial = new Finantial(dCurrentRatio, dDividendY, dEBTIDA);
+    }
+
+    public Finantial getoFinantial() {
+        return oFinantial;
     }
 
     public double calculateGains() {
@@ -39,28 +47,4 @@ public class Index {
         return dPERation;
     }
 
-    double getdCurrentRatio() {
-        return dCurrentRatio;
-    }
-
-    double getdDividendY() {
-        return dDividendY;
-    }
-
-    double getdDCF() {
-        return dDCF;
-    }
-
-    double getdROE() {
-        return dROE;
-    }
-
-    double getdROI() {
-        return dROI;
-    }
-
-    double getdEBTIDA() {
-        return dEBTIDA;
-    }
-    
 }
