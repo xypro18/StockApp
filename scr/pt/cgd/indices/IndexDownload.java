@@ -1,9 +1,12 @@
 package pt.cgd.indices;
 
-import com.google.gson.Gson;
+//import com.google.gson.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.HashMap;
+import org.json.simple.*;
+import org.json.simple.parser.*;
 
 public class IndexDownload {
 
@@ -24,7 +27,17 @@ public class IndexDownload {
         this.iSite = iSite;
 
         sJSON = readUrl(sURL[iSite]);
-        Gson g = new Gson();
+//        Gson g = new Gson();
+//        JsonElement jelement = new JsonParser().parse(sJSON);
+//        JsonArray jobject = jelement.getAsJsonArray();
+        
+        JSONParser parser = new JSONParser();
+
+        JSONObject obj = (JSONObject) parser.parse(sJSON);
+        JSONObject obj2 = (JSONObject) obj.get(0);
+//        JSONArray array = (JSONArray) obj.get("Time Series (1min)");
+        
+        HashMap hm ;
 
         switch (iSite) {
             case iALPHAVANTAGE:
