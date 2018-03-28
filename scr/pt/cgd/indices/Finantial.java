@@ -2,17 +2,22 @@
 package pt.cgd.indices;
 
 
-public class Finantial {
+public class Finantial implements FinantialOp {
     double dCurrentRatio;
     double dDividendY;
     double dROE;
     double dROI;
     double dEBTIDA;
+    double dGains;
 
     public Finantial(double dCurrentRatio, double dDividendY, double dEBTIDA) {
         this.dCurrentRatio = dCurrentRatio;
         this.dDividendY = dDividendY;
         this.dEBTIDA = dEBTIDA;
+    }
+    
+    public void calculateGains() {
+        dGains = dDividendY;
     }
 
     public double getdCurrentRatio() {

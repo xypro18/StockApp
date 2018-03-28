@@ -1,6 +1,6 @@
 package pt.cgd.indices;
 
-public class Index {
+public class Index implements FinantialOp {
 
     // Stock identification
     private String sIndex;
@@ -12,6 +12,7 @@ public class Index {
     private double dDCF;
     // Finantial indicators
     Finantial oFinantial;
+    private double dGains;
 
     public Index(String sIndex, double dPriceBought, double dPriceLast) {
         this.sIndex = sIndex;
@@ -27,8 +28,8 @@ public class Index {
         return oFinantial;
     }
 
-    public double calculateGains() {
-        return (dPriceLast / dPriceBought - 1) * 100;
+    public void calculateGains() {
+        dGains = (dPriceLast / dPriceBought - 1) * 100;
     }
 
     void setdPriceBought(double dPriceBought) {
